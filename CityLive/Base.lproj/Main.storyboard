@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="e0x-bN-dfR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="e0x-bN-dfR">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -37,20 +38,56 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="Ry1-qW-Ji3">
+                            <rect key="frame" x="0.0" y="130" width="600" height="50"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Mrd-ub-o0G">
+                                    <rect key="frame" x="290" y="15" width="20" height="20"/>
+                                </activityIndicatorView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="Mrd-ub-o0G" firstAttribute="centerX" secondItem="Ry1-qW-Ji3" secondAttribute="centerX" id="dFm-ps-w89"/>
+                                <constraint firstItem="Mrd-ub-o0G" firstAttribute="centerY" secondItem="Ry1-qW-Ji3" secondAttribute="centerY" id="f3i-gl-dvH"/>
+                            </constraints>
+                        </view>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cityCell" textLabel="PA1-MZ-1hx" style="IBUITableViewCellStyleDefault" id="8B3-DD-b30">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cityCell" id="8B3-DD-b30" customClass="CityCell" customModule="CityLive" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8B3-DD-b30" id="PL3-qF-IQ3">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PA1-MZ-1hx">
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EYV-Gh-05m">
+                                            <rect key="frame" x="8" y="11" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="√" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vCY-JX-Uea">
+                                            <rect key="frame" x="582" y="11" width="10" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="centerY" secondItem="vCY-JX-Uea" secondAttribute="centerY" id="D1S-re-HBS"/>
+                                        <constraint firstItem="EYV-Gh-05m" firstAttribute="centerY" secondItem="PL3-qF-IQ3" secondAttribute="centerY" id="GkZ-GI-hKe"/>
+                                        <constraint firstItem="vCY-JX-Uea" firstAttribute="baseline" secondItem="EYV-Gh-05m" secondAttribute="baseline" id="Wop-ob-CXK"/>
+                                        <constraint firstItem="EYV-Gh-05m" firstAttribute="leading" secondItem="PL3-qF-IQ3" secondAttribute="leadingMargin" id="lpu-5E-fec"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="vCY-JX-Uea" secondAttribute="trailing" id="swE-BJ-53r"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="Wop-ob-CXK"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="cityName" destination="EYV-Gh-05m" id="8OO-an-El4"/>
+                                    <outlet property="citySelected" destination="vCY-JX-Uea" id="a4Q-8G-gnX"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -59,13 +96,35 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="选择城市" id="Xg2-Iz-2Hh">
-                        <barButtonItem key="leftBarButtonItem" title="取消" id="u4I-JO-xOO"/>
+                        <barButtonItem key="leftBarButtonItem" title="取消" id="u4I-JO-xOO">
+                            <connections>
+                                <action selector="onCancel:" destination="eCc-HO-1F0" id="K4M-Sc-xad"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="完成" id="9RR-2c-IC9">
                             <connections>
                                 <action selector="onFinish:" destination="eCc-HO-1F0" id="Td8-gv-3Qv"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="u2W-VS-vUx">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <attributedString key="attributedTitle">
+                            <fragment content="正在获取城市列表">
+                                <attributes>
+                                    <font key="NSFont" size="11" name="STHeitiSC-Light"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                        <connections>
+                            <action selector="refresh:" destination="eCc-HO-1F0" eventType="valueChanged" id="z5Z-Nl-FyY"/>
+                        </connections>
+                    </refreshControl>
+                    <connections>
+                        <outlet property="loadMoreInidicator" destination="Mrd-ub-o0G" id="MTJ-72-3Xp"/>
+                        <outlet property="loadingMoreFooter" destination="Ry1-qW-Ji3" id="8mu-la-Qxz"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yt1-5k-5Xw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

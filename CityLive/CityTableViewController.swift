@@ -11,25 +11,43 @@ import Alamofire
 import SwiftyJSON
 
 class CityTableViewController: UITableViewController {
-    var data: JSON = nil
+    var data = [City]()
+    
+    var isLoadingData = false
+    
+    var selectedCityId: String = ""
+    
+    let CityNumPerRequest = 20;
+    
+    @IBOutlet weak var loadMoreInidicator: UIActivityIndicatorView!
+    @IBOutlet weak var loadingMoreFooter: UIView!
+    
+    @IBAction func refresh(sender: UIRefreshControl) {
+        refresh()
+    }
+    
+    // MARK: - Tabitem actions
     
     @IBAction func onFinish(sender: UIBarButtonItem) {
         self.dismissViewControllerAnimated(true, completion: nil)
+        NSUserDefaults.standardUserDefaults().setObject(selectedCityId, forKey: Constants.CityDefaultsKey)
     }
+    
     @IBAction func onCancel(sender: UIBarButtonItem) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    // MARK: - Controller Lifecycle
+    
     override func viewDidLoad() {
         self.navigationController?.navigationBar.barTintColor = UIColor.orangeColor()
+        if let preSelectedCity = NSUserDefaults.standardUserDefaults().stringForKey(Constants.CityDefaultsKey) {
+            selectedCityId = preSelectedCity
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
-        Alamofire.request(.GET, "https://api.douban.com/v2/loc/list").responseJSON {
-            (_, _, resJson, _) in
-            self.data = JSON(resJson!)
-            self.tableView.reloadData()
-            
-        }
+        refresh()
     }
     
     // MARK: - Table view data source
@@ -37,62 +55,111 @@ class CityTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return data["locs"].count
+        return data.count
     }
 
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cityCell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("cityCell", forIndexPath: indexPath) as! CityCell
         
-        cell.textLabel?.text = data["locs"][indexPath.row]["name"].string
+        let city = data[indexPath.row]
+        
+        if city.name != nil {
+            cell.cityName?.text = data[indexPath.row].name!
+        }
+        
+        if city.id != nil {
+            cell.citySelected.hidden = self.selectedCityId != city.id
+        }
+        
+        
+        if indexPath.row == data.count - 1 {
+            loadMore()
+        }
 
         return cell
     }
-
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
-        return true
+    
+    struct Constants {
+        static let CityDefaultsKey = "user-city-key"
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if data[indexPath.row].id != nil {
+            selectedCityId = data[indexPath.row].id!
+            self.tableView.reloadData()
+        }
     }
-    */
 
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
+    private func refresh() -> Void {
+        
+        if isLoadingData {
+            if self.refreshControl != nil && self.refreshControl!.refreshing {
+                self.refreshControl?.endRefreshing()
+                
+            }
+            return
+        }
+        
+        isLoadingData = true
+        loadingMoreFooter.hidden = true
+        
+        if refreshControl != nil &&  !refreshControl!.refreshing {
+                refreshControl?.beginRefreshing()
+        }
 
+        Alamofire.request(.GET, Urls.cityList).responseJSON {
+            (_, _, resJson, _) in
+            self.data = City.JSON2CityList(JSON(resJson!)["locs"])
+            self.tableView.reloadData()
+            if self.refreshControl != nil && self.refreshControl!.refreshing {
+                    self.refreshControl?.endRefreshing()
+ 
+            }
+            self.isLoadingData = false
+            self.loadingMoreFooter.hidden = false
+        }
     }
-    */
+    
+    private func loadMore() -> Void {
+        if isLoadingData {
+            return
+        }
+        
+        isLoadingData = true
+        
+        loadMoreInidicator.startAnimating()
+        
+        Alamofire.request(.GET, Urls.cityList, parameters: ["start": data.count, "count": CityNumPerRequest]).responseJSON {
+            (_, _, resJson, _) in
+            if resJson != nil {
+                self.data.extend(City.JSON2CityList(JSON(resJson!)["locs"]))
+                self.tableView.reloadData()
+            }
+            self.isLoadingData = false
 
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the item to be re-orderable.
-        return true
+        }
     }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+    
+    struct City {
+        let parent: String?
+        let id: String?
+        let habitable: String?
+        let name: String?
+        let uid: String?
+        
+        static func JSON2CityList(json: JSON) -> [City] {
+            var cities = [City]()
+            for cityJSONItem in json.arrayValue {
+                cities.append(City(
+                    parent: cityJSONItem["parent"].string,
+                    id: cityJSONItem["id"].string,
+                    habitable: cityJSONItem["habitable"].string,
+                    name: cityJSONItem["name"].string,
+                    uid: cityJSONItem["uid"].string))
+            }
+            return cities
+        }
     }
-    */
 
 }

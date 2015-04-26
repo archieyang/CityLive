@@ -14,6 +14,8 @@
 		21D484371AEB9A7700EB7DF4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21D484361AEB9A7700EB7DF4 /* Images.xcassets */; };
 		21D4843A1AEB9A7700EB7DF4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21D484381AEB9A7700EB7DF4 /* LaunchScreen.xib */; };
 		21D484461AEB9A7700EB7DF4 /* CityLiveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D484451AEB9A7700EB7DF4 /* CityLiveTests.swift */; };
+		21D5EF541AECD58B003ECDF7 /* CityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D5EF531AECD58B003ECDF7 /* CityCell.swift */; };
+		21D5EF561AECDDAC003ECDF7 /* Urls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D5EF551AECDDAC003ECDF7 /* Urls.swift */; };
 		4138B846D8098463F5E7DCFC /* Pods_CityLive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14D81C8D5E5F0E1A07C52342 /* Pods_CityLive.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -41,6 +43,8 @@
 		21D4843F1AEB9A7700EB7DF4 /* CityLiveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CityLiveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		21D484441AEB9A7700EB7DF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21D484451AEB9A7700EB7DF4 /* CityLiveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityLiveTests.swift; sourceTree = "<group>"; };
+		21D5EF531AECD58B003ECDF7 /* CityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityCell.swift; sourceTree = "<group>"; };
+		21D5EF551AECDDAC003ECDF7 /* Urls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Urls.swift; sourceTree = "<group>"; };
 		7A6EF62268A8F2E34202D892 /* Pods-CityLive.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CityLive.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CityLive/Pods-CityLive.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,7 +90,8 @@
 		21D4842C1AEB9A7700EB7DF4 /* CityLive */ = {
 			isa = PBXGroup;
 			children = (
-				21B012CE1AEBA147009E9ACF /* CityTableViewController.swift */,
+				21D5EF571AECDE3D003ECDF7 /* CityList */,
+				21D5EF551AECDDAC003ECDF7 /* Urls.swift */,
 				21D484311AEB9A7700EB7DF4 /* ViewController.swift */,
 				21D484331AEB9A7700EB7DF4 /* Main.storyboard */,
 				21D4842D1AEB9A7700EB7DF4 /* Supporting Files */,
@@ -120,6 +125,15 @@
 				21D484441AEB9A7700EB7DF4 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		21D5EF571AECDE3D003ECDF7 /* CityList */ = {
+			isa = PBXGroup;
+			children = (
+				21D5EF531AECD58B003ECDF7 /* CityCell.swift */,
+				21B012CE1AEBA147009E9ACF /* CityTableViewController.swift */,
+			);
+			name = CityList;
 			sourceTree = "<group>";
 		};
 		352ABE24A394C19D6592E2EE /* Pods */ = {
@@ -292,7 +306,9 @@
 			files = (
 				21B012CF1AEBA147009E9ACF /* CityTableViewController.swift in Sources */,
 				21D484321AEB9A7700EB7DF4 /* ViewController.swift in Sources */,
+				21D5EF541AECD58B003ECDF7 /* CityCell.swift in Sources */,
 				21D484301AEB9A7700EB7DF4 /* AppDelegate.swift in Sources */,
+				21D5EF561AECDDAC003ECDF7 /* Urls.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
