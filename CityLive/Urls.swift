@@ -10,4 +10,5 @@ import Foundation
 
 struct Urls {
     static let cityList = "https://api.douban.com/v2/loc/list"
+    static let eventList = "https://api.douban.com/v2/event/list"
 }

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class SelectedController: UIPageViewController, UIPageViewControllerDataSource{
 
@@ -35,6 +37,16 @@ class SelectedController: UIPageViewController, UIPageViewControllerDataSource{
         self.view.addSubview(self.pageViewController.view)
         self.pageViewController.didMoveToParentViewController(self)
         
+    }
+    //TODO: unwrap NSUserDefaults.standardUserDefaults().stringForKey(CityTableViewController.Constants.CityDefaultsKey) not checked
+    override func viewWillAppear(animated: Bool) {
+        Alamofire.request(.GET, Urls.eventList, parameters: ["loc": NSUserDefaults.standardUserDefaults().stringForKey(CityTableViewController.Constants.CityDefaultsKey)!, "day_type": "week", "type": "all"]).responseJSON{
+            (_, _, resJson, _) in
+            if(resJson != nil) {
+                
+            }
+            println(resJson)
+        }
     }
     
     func contentViewControllerAtIndex(index: Int) -> SelectedContentViewController {
