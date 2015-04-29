@@ -98,7 +98,6 @@
 			children = (
 				21D5EF5E1AED1617003ECDF7 /* Selected */,
 				21D5EF551AECDDAC003ECDF7 /* Urls.swift */,
-				21D484331AEB9A7700EB7DF4 /* Main.storyboard */,
 				21D4842D1AEB9A7700EB7DF4 /* Supporting Files */,
 				21D5EF5A1AED00CC003ECDF7 /* SearchViewController.swift */,
 				21D5EF5C1AED00EC003ECDF7 /* PersonalViewController.swift */,
@@ -149,6 +148,7 @@
 				21D5EF571AECDE3D003ECDF7 /* CityList */,
 				21D5EF581AED0032003ECDF7 /* SelectedController.swift */,
 				21D5EF5F1AED1796003ECDF7 /* SelectedContentViewController.swift */,
+				21D484331AEB9A7700EB7DF4 /* Main.storyboard */,
 			);
 			name = Selected;
 			sourceTree = "<group>";

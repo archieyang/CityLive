@@ -16,12 +16,12 @@ class SelectedController: UIPageViewController, UIPageViewControllerDataSource{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.blueColor()
         
         titles = ["Page 1", "Page 2", "Page 3", "Page 4", "Page 5"]
         
         self.pageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("SelectedPageViewController") as! UIPageViewController
         self.pageViewController.dataSource = self
+        self.view.backgroundColor = UIColor.whiteColor()
         
         var initVC = self.contentViewControllerAtIndex(0) as SelectedContentViewController
         
@@ -29,7 +29,7 @@ class SelectedController: UIPageViewController, UIPageViewControllerDataSource{
         
         self.pageViewController.setViewControllers(viewControllers, direction: .Forward, animated: true, completion: nil)
         
-        self.pageViewController.view.frame = CGRectMake(0, 30, self.view.frame.width, self.view.frame.size.height - 200)
+        self.pageViewController.view.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.size.height - (self.parentViewController?.parentViewController as! UITabBarController).tabBar.frame.size.height)
         
         self.addChildViewController(self.pageViewController)
         self.view.addSubview(self.pageViewController.view)
