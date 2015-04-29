@@ -19,30 +19,43 @@ class SelectedController: UIPageViewController, UIPageViewControllerDataSource{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        titles = ["Page 1", "Page 2", "Page 3", "Page 4", "Page 5"]
+        titles = [String]()
         
         self.pageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("SelectedPageViewController") as! UIPageViewController
         self.pageViewController.dataSource = self
         self.view.backgroundColor = UIColor.whiteColor()
-        
-        var initVC = self.contentViewControllerAtIndex(0) as SelectedContentViewController
-        
-        var viewControllers = [initVC]
-        
-        self.pageViewController.setViewControllers(viewControllers, direction: .Forward, animated: true, completion: nil)
-        
-        self.pageViewController.view.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.size.height - (self.parentViewController?.parentViewController as! UITabBarController).tabBar.frame.size.height)
-        
-        self.addChildViewController(self.pageViewController)
-        self.view.addSubview(self.pageViewController.view)
-        self.pageViewController.didMoveToParentViewController(self)
+
         
     }
     //TODO: unwrap NSUserDefaults.standardUserDefaults().stringForKey(CityTableViewController.Constants.CityDefaultsKey) not checked
     override func viewWillAppear(animated: Bool) {
-        Alamofire.request(.GET, Urls.eventList, parameters: ["loc": NSUserDefaults.standardUserDefaults().stringForKey(CityTableViewController.Constants.CityDefaultsKey)!, "day_type": "week", "type": "all"]).responseJSON{
+        Alamofire.request(.GET, Urls.eventList, parameters: [
+            "loc": NSUserDefaults.standardUserDefaults().stringForKey(CityTableViewController.Constants.CityDefaultsKey)!,
+            "day_type": "week",
+            "type": "all",
+            "count": 10]).responseJSON{
             (_, _, resJson, _) in
             if(resJson != nil) {
+                let json = JSON(resJson!)
+                
+                let events = json["events"].array!
+                
+                for var i = 0; i < events.count; ++i {
+                    self.titles.append(events[i]["title"].stringValue)
+                }
+                
+                
+                var initVC = self.contentViewControllerAtIndex(0) as SelectedContentViewController
+                
+                var viewControllers = [initVC]
+                
+                self.pageViewController.setViewControllers(viewControllers, direction: .Forward, animated: true, completion: nil)
+                
+                self.pageViewController.view.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.size.height - (self.parentViewController?.parentViewController as! UITabBarController).tabBar.frame.size.height)
+                
+                self.addChildViewController(self.pageViewController)
+                self.view.addSubview(self.pageViewController.view)
+                self.pageViewController.didMoveToParentViewController(self)
                 
             }
             println(resJson)
