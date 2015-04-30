@@ -7,18 +7,51 @@
 //
 
 import UIKit
+import SwiftyJSON
+import Alamofire
 
 class SelectedContentViewController: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var topPoster: UIImageView!
     
-    var titleText: String!
+    var event: JSON!
     var pageIndex: Int!
     override func viewDidLoad() {
         super.viewDidLoad()
-        titleLabel.text = titleText
+        titleLabel.text = event["title"].stringValue
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        Alamofire.request(.GET, event["image"].stringValue).validate().responseImage{
+            (_, _, image, error) in
+            
+            self.topPoster.image = image
+        }
     }
 
+}
 
-
+extension Alamofire.Request {
+    class func imageResourceSerializer() -> Serializer {
+        return {
+            request, response, data in
+            
+            if data == nil {
+                return (nil, nil)
+            }
+            
+            let image = UIImage(data:data!)
+            
+            return (image, nil)
+        }
+    }
+    
+    func responseImage (completionHandler: (NSURLRequest, NSHTTPURLResponse?, UIImage?, NSError?) -> Void) -> Self {
+        return response(serializer: Request.imageResourceSerializer(), completionHandler: {
+            (request, response, image, error) in
+            
+            completionHandler(request, response, image as? UIImage, error)
+        })
+    }
 }

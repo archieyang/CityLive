@@ -37,7 +37,7 @@
                 <pageViewController storyboardIdentifier="SelectedPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="6gN-ig-6On" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mrG-CD-nOx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2379" y="1094"/>
+            <point key="canvasLocation" x="2575" y="2270"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="RDp-WF-pPE">
@@ -213,20 +213,45 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="whZ-3n-Ycq">
+                                <rect key="frame" x="16" y="28" width="568" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="7mC-Hs-ok1"/>
+                                    <constraint firstAttribute="height" constant="128" id="K01-qH-fe9"/>
+                                    <constraint firstAttribute="width" constant="240" id="zR9-mX-GIY"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="K01-qH-fe9"/>
+                                        <exclude reference="zR9-mX-GIY"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="whZ-3n-Ycq" secondAttribute="trailing" id="0sI-cr-0tf"/>
+                            <constraint firstItem="whZ-3n-Ycq" firstAttribute="centerX" secondItem="jGW-x5-Axd" secondAttribute="centerX" id="VJR-21-eTK"/>
                             <constraint firstAttribute="centerX" secondItem="jGW-x5-Axd" secondAttribute="centerX" id="XG2-kg-Wa5"/>
+                            <constraint firstAttribute="centerX" secondItem="whZ-3n-Ycq" secondAttribute="centerX" id="lEy-5A-YKl"/>
                             <constraint firstAttribute="centerY" secondItem="jGW-x5-Axd" secondAttribute="centerY" id="nGW-5Y-0NL"/>
+                            <constraint firstItem="whZ-3n-Ycq" firstAttribute="leading" secondItem="fWa-rF-Lby" secondAttribute="leadingMargin" id="oyI-kO-9z4"/>
+                            <constraint firstItem="whZ-3n-Ycq" firstAttribute="top" secondItem="ma8-Yy-O1P" secondAttribute="bottom" constant="8" symbolic="YES" id="zO7-Yo-Y9H"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="VJR-21-eTK"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="titleLabel" destination="jGW-x5-Axd" id="l30-F2-EgP"/>
+                        <outlet property="topPoster" destination="whZ-3n-Ycq" id="yMs-Qa-8lx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hdG-U3-GEF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3089" y="1083"/>
+            <point key="canvasLocation" x="3204" y="2270"/>
         </scene>
         <!--精选活动-->
         <scene sceneID="iPF-xo-Urk">

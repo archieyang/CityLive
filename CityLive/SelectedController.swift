@@ -14,12 +14,12 @@ class SelectedController: UIPageViewController, UIPageViewControllerDataSource{
 
     var pageViewController: UIPageViewController!
     
-    var titles: [String]!
+    var events: [JSON]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        titles = [String]()
+        events = [JSON]()
         
         self.pageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("SelectedPageViewController") as! UIPageViewController
         self.pageViewController.dataSource = self
@@ -38,12 +38,16 @@ class SelectedController: UIPageViewController, UIPageViewControllerDataSource{
             if(resJson != nil) {
                 let json = JSON(resJson!)
                 
-                let events = json["events"].array!
                 
-                for var i = 0; i < events.count; ++i {
-                    self.titles.append(events[i]["title"].stringValue)
+                if let evts = json["events"].array {
+//                    for var i = 0; i < events.count; ++i {
+////                        self.titles.append(events[i]["title"].stringValue)
+//                        self.events.append(<#newElement: T#>)
+//
+//                    }
+                    self.events.removeAll(keepCapacity: true)
+                    self.events.extend(evts)
                 }
-                
                 
                 var initVC = self.contentViewControllerAtIndex(0) as SelectedContentViewController
                 
@@ -56,15 +60,15 @@ class SelectedController: UIPageViewController, UIPageViewControllerDataSource{
                 self.addChildViewController(self.pageViewController)
                 self.view.addSubview(self.pageViewController.view)
                 self.pageViewController.didMoveToParentViewController(self)
+
                 
             }
-            println(resJson)
         }
     }
     
     func contentViewControllerAtIndex(index: Int) -> SelectedContentViewController {
         var cvc = self.storyboard?.instantiateViewControllerWithIdentifier("SelectedContentViewController") as! SelectedContentViewController
-        cvc.titleText = titles[index]
+        cvc.event = events[index]
         cvc.pageIndex = index
         return cvc
     }
@@ -93,7 +97,7 @@ class SelectedController: UIPageViewController, UIPageViewControllerDataSource{
         
         var index = vc.pageIndex as Int
         
-        if index == NSNotFound || index == titles.count - 1 {
+        if index == NSNotFound || index == events.count - 1 {
             return nil
         }
         
@@ -103,7 +107,7 @@ class SelectedController: UIPageViewController, UIPageViewControllerDataSource{
     }
     
     func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
-        return titles.count
+        return events.count
     }
     
     func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
