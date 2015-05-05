@@ -77,6 +77,24 @@
             </objects>
             <point key="canvasLocation" x="3883" y="1458"/>
         </scene>
+        <!--Event Detail View Controller-->
+        <scene sceneID="Gze-5A-hJb">
+            <objects>
+                <viewController id="di8-8R-bFd" customClass="EventDetailViewController" customModule="CityLive" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xg5-Qs-9Us"/>
+                        <viewControllerLayoutGuide type="bottom" id="8OM-ft-r8L"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8AX-yH-mVK">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MV7-EG-Dcs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3935" y="2275"/>
+        </scene>
         <!--选择城市-->
         <scene sceneID="v25-eD-XI8">
             <objects>
@@ -232,6 +250,7 @@
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="whZ-3n-Ycq" firstAttribute="top" secondItem="jGW-x5-Axd" secondAttribute="top" constant="-239" id="BbM-gO-PlN"/>
                                     <constraint firstAttribute="centerX" secondItem="jGW-x5-Axd" secondAttribute="centerX" id="HNQ-1g-VAn"/>
@@ -247,6 +266,9 @@
                                         <exclude reference="BbM-gO-PlN"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="u3u-hB-Bbb" appends="YES" id="4WT-Az-ksx"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -273,6 +295,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hdG-U3-GEF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="u3u-hB-Bbb">
+                    <connections>
+                        <segue destination="di8-8R-bFd" kind="show" id="Q04-KK-qCK"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3204" y="2270"/>
         </scene>
