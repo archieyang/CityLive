@@ -29,6 +29,15 @@ class SelectedContentViewController: UIViewController {
             self.topPoster.image = image
         }
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showEventDetail" {
+            if let destination = segue.destinationViewController as? EventDetailViewController {
+                destination.eventJson = event
+                destination.poster = topPoster.image
+            }
+        }
+    }
 
 }
 
