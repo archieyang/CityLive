@@ -17,7 +17,6 @@ class EventDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         eventDescription.text = eventJson["content"].stringValue
-
     }
 
     override func didReceiveMemoryWarning() {

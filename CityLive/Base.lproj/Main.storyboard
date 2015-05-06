@@ -80,13 +80,13 @@
         <!--Event Detail View Controller-->
         <scene sceneID="Gze-5A-hJb">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="di8-8R-bFd" customClass="EventDetailViewController" customModule="CityLive" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="di8-8R-bFd" customClass="EventDetailViewController" customModule="CityLive" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xg5-Qs-9Us"/>
                         <viewControllerLayoutGuide type="bottom" id="8OM-ft-r8L"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8AX-yH-mVK">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2WA-JH-qGK">
@@ -115,7 +115,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="o3M-nt-FsU" secondAttribute="bottom" constant="20" symbolic="YES" id="49T-98-gd9"/>
+                                    <constraint firstAttribute="bottom" secondItem="o3M-nt-FsU" secondAttribute="bottom" id="49T-98-gd9"/>
                                     <constraint firstAttribute="width" secondItem="o3M-nt-FsU" secondAttribute="width" id="VSt-xO-fy3"/>
                                     <constraint firstItem="o3M-nt-FsU" firstAttribute="top" secondItem="2WA-JH-qGK" secondAttribute="top" id="WzI-Ri-iHP"/>
                                     <constraint firstAttribute="trailing" secondItem="o3M-nt-FsU" secondAttribute="trailing" id="cgo-xf-F8H"/>
@@ -125,11 +125,12 @@
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="2WA-JH-qGK" secondAttribute="trailing" constant="-16" id="9ot-oA-gcl"/>
+                            <constraint firstItem="2WA-JH-qGK" firstAttribute="top" secondItem="xg5-Qs-9Us" secondAttribute="bottom" id="FPj-9l-Udv"/>
                             <constraint firstItem="2WA-JH-qGK" firstAttribute="leading" secondItem="8AX-yH-mVK" secondAttribute="leadingMargin" constant="-16" id="M94-TP-paC"/>
-                            <constraint firstItem="8OM-ft-r8L" firstAttribute="top" secondItem="2WA-JH-qGK" secondAttribute="bottom" id="Szw-gZ-FXM"/>
-                            <constraint firstItem="2WA-JH-qGK" firstAttribute="top" secondItem="xg5-Qs-9Us" secondAttribute="bottom" id="tc3-Jd-RMs"/>
+                            <constraint firstItem="8OM-ft-r8L" firstAttribute="bottom" secondItem="2WA-JH-qGK" secondAttribute="bottom" id="xUt-dU-lb9"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
                         <outlet property="eventDescription" destination="KeH-M5-2au" id="Tfz-be-K1v"/>
                     </connections>
