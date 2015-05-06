@@ -34,7 +34,6 @@ class SelectedContentViewController: UIViewController {
         if segue.identifier == "showEventDetail" {
             if let destination = segue.destinationViewController as? EventDetailViewController {
                 destination.eventJson = event
-                destination.poster = topPoster.image
             }
         }
     }
