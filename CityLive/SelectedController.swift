@@ -34,11 +34,23 @@ class SelectedController: UIPageViewController, UIPageViewControllerDataSource{
         if events.count != 0 {
             return
         }
-        Alamofire.request(.GET, Urls.eventList, parameters: [
-            "loc": NSUserDefaults.standardUserDefaults().stringForKey(CityTableViewController.Constants.CityDefaultsKey)!,
-            "day_type": "week",
-            "type": "all",
-            "count": 10]).responseJSON{
+        var params = [String : AnyObject]()
+        if let loc = NSUserDefaults.standardUserDefaults().stringForKey(CityTableViewController.Constants.CityDefaultsKey) {
+            params = [
+                "loc": loc,
+                "day_type": "week",
+                "type": "all",
+                "count": 10
+            ]
+        } else {
+            params = [
+                "loc": 108288,//beijng city code
+                "day_type": "week",
+                "type": "all",
+                "count": 10
+            ]
+        }
+        Alamofire.request(.GET, Urls.eventList, parameters: params).responseJSON{
             (_, _, resJson, _) in
             if(resJson != nil) {
                 let json = JSON(resJson!)
