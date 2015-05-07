@@ -11,11 +11,22 @@ import SwiftyJSON
 
 class EventDetailViewController: UIViewController {
     var eventJson: JSON!
-
+    var posterImage: UIImage!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var hostLabel: UILabel!
     @IBOutlet weak var eventDescription: UITextView!
- 
+    @IBOutlet weak var posterImageView: UIImageView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        posterImageView.image = posterImage
+        titleLabel.text = eventJson["title"].stringValue
+        timeLabel.text = eventJson["begin_time"].stringValue
+        addressLabel.text = eventJson["address"].stringValue
+        hostLabel.text = eventJson["owner"]["name"].stringValue
         eventDescription.text = eventJson["content"].stringValue
     }
 
