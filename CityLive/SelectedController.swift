@@ -16,6 +16,8 @@ class SelectedController: UIPageViewController, UIPageViewControllerDataSource{
     
     var events: [JSON]!
     
+    var pageIndes: Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,6 +31,9 @@ class SelectedController: UIPageViewController, UIPageViewControllerDataSource{
     }
     //TODO: unwrap NSUserDefaults.standardUserDefaults().stringForKey(CityTableViewController.Constants.CityDefaultsKey) not checked
     override func viewWillAppear(animated: Bool) {
+        if events.count != 0 {
+            return
+        }
         Alamofire.request(.GET, Urls.eventList, parameters: [
             "loc": NSUserDefaults.standardUserDefaults().stringForKey(CityTableViewController.Constants.CityDefaultsKey)!,
             "day_type": "week",
@@ -65,6 +70,7 @@ class SelectedController: UIPageViewController, UIPageViewControllerDataSource{
             }
         }
     }
+    
     
     func contentViewControllerAtIndex(index: Int) -> SelectedContentViewController {
         var cvc = self.storyboard?.instantiateViewControllerWithIdentifier("SelectedContentViewController") as! SelectedContentViewController
