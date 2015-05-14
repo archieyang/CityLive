@@ -10,21 +10,20 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class CityTableViewController: UITableViewController {
+class CityTableViewController: RefreshableTableViewController {
     var data = [City]()
     
-    var isLoadingData = false
     
     var selectedCityId: String = ""
     
     let CityNumPerRequest = 20;
     
-    @IBOutlet weak var loadMoreInidicator: UIActivityIndicatorView!
-    @IBOutlet weak var loadingMoreFooter: UIView!
-    
-    @IBAction func refresh(sender: UIRefreshControl) {
-        refresh()
-    }
+//    @IBOutlet weak var loadMoreInidicator: UIActivityIndicatorView!
+//    @IBOutlet weak var loadingMoreFooter: UIView!
+//    
+//    @IBAction func refresh(sender: UIRefreshControl) {
+//        refresh()
+//    }
     
     // MARK: - Tabitem actions
     
@@ -45,10 +44,7 @@ class CityTableViewController: UITableViewController {
             selectedCityId = preSelectedCity
         }
     }
-    
-    override func viewWillAppear(animated: Bool) {
-        refresh()
-    }
+
     
     // MARK: - Table view data source
 
@@ -57,7 +53,6 @@ class CityTableViewController: UITableViewController {
         // Return the number of rows in the section.
         return data.count
     }
-
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cityCell", forIndexPath: indexPath) as! CityCell
@@ -91,55 +86,22 @@ class CityTableViewController: UITableViewController {
         }
     }
 
-    private func refresh() -> Void {
-        
-        if isLoadingData {
-            if self.refreshControl != nil && self.refreshControl!.refreshing {
-                self.refreshControl?.endRefreshing()
-                
-            }
-            return
-        }
-        
-        isLoadingData = true
-        loadingMoreFooter.hidden = true
-        
-        if refreshControl != nil &&  !refreshControl!.refreshing {
-                refreshControl?.beginRefreshing()
-        }
-
-        Alamofire.request(.GET, Urls.cityList).responseJSON {
-            (_, _, resJson, _) in
-            self.data = City.JSON2CityList(JSON(resJson!)["locs"])
-            self.tableView.reloadData()
-            if self.refreshControl != nil && self.refreshControl!.refreshing {
-                    self.refreshControl?.endRefreshing()
- 
-            }
-            self.isLoadingData = false
-            self.loadingMoreFooter.hidden = false
-        }
+    
+    override func onData(json: JSON) {
+        self.data = City.JSON2CityList(json["locs"])
+        println(self.data)
     }
     
-    private func loadMore() -> Void {
-        if isLoadingData {
-            return
-        }
-        
-        isLoadingData = true
-        
-        loadMoreInidicator.startAnimating()
-        
-        Alamofire.request(.GET, Urls.cityList, parameters: ["start": data.count, "count": CityNumPerRequest]).responseJSON {
-            (_, _, resJson, _) in
-            if resJson != nil {
-                self.data.extend(City.JSON2CityList(JSON(resJson!)["locs"]))
-                self.tableView.reloadData()
-            }
-            self.isLoadingData = false
-
-        }
+    override func addData(json: JSON) {
+        self.data.extend(City.JSON2CityList(json["locs"]))
+        self.tableView.reloadData()
     }
+    
+    override func dataCount() -> Int {
+        return self.data.count
+    }
+    
+    
     
     struct City {
         let parent: String?

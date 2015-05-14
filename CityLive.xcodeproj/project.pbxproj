@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2130E3611B02D16600C65D7D /* EventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2130E3601B02D16600C65D7D /* EventListViewController.swift */; };
 		2130E3631B02D41F00C65D7D /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2130E3621B02D41F00C65D7D /* EventCell.swift */; };
+		215AF57B1B0419FC00E74833 /* RefreshableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215AF57A1B0419FC00E74833 /* RefreshableTableViewController.swift */; };
 		21B012CF1AEBA147009E9ACF /* CityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B012CE1AEBA147009E9ACF /* CityTableViewController.swift */; };
 		21D484301AEB9A7700EB7DF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D4842F1AEB9A7700EB7DF4 /* AppDelegate.swift */; };
 		21D484351AEB9A7700EB7DF4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21D484331AEB9A7700EB7DF4 /* Main.storyboard */; };
@@ -40,6 +41,7 @@
 		1717AF9284C1CE6B26140584 /* Pods-CityLive.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CityLive.release.xcconfig"; path = "Pods/Target Support Files/Pods-CityLive/Pods-CityLive.release.xcconfig"; sourceTree = "<group>"; };
 		2130E3601B02D16600C65D7D /* EventListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventListViewController.swift; sourceTree = "<group>"; };
 		2130E3621B02D41F00C65D7D /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
+		215AF57A1B0419FC00E74833 /* RefreshableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshableTableViewController.swift; sourceTree = "<group>"; };
 		21B012CE1AEBA147009E9ACF /* CityTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityTableViewController.swift; sourceTree = "<group>"; };
 		21D4842A1AEB9A7700EB7DF4 /* CityLive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CityLive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21D4842E1AEB9A7700EB7DF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -88,6 +90,15 @@
 			name = List;
 			sourceTree = "<group>";
 		};
+		215AF5791B0419CD00E74833 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				21D5EF551AECDDAC003ECDF7 /* Urls.swift */,
+				215AF57A1B0419FC00E74833 /* RefreshableTableViewController.swift */,
+			);
+			name = utils;
+			sourceTree = "<group>";
+		};
 		21D484211AEB9A7700EB7DF4 = {
 			isa = PBXGroup;
 			children = (
@@ -111,11 +122,11 @@
 		21D4842C1AEB9A7700EB7DF4 /* CityLive */ = {
 			isa = PBXGroup;
 			children = (
+				215AF5791B0419CD00E74833 /* utils */,
 				21D484331AEB9A7700EB7DF4 /* Main.storyboard */,
 				2130E35F1B02D12C00C65D7D /* List */,
 				21F6DE961AF8434300C409FA /* Detail */,
 				21D5EF5E1AED1617003ECDF7 /* Selected */,
-				21D5EF551AECDDAC003ECDF7 /* Urls.swift */,
 				21D4842D1AEB9A7700EB7DF4 /* Supporting Files */,
 				21D5EF5A1AED00CC003ECDF7 /* SearchViewController.swift */,
 				21D5EF5C1AED00EC003ECDF7 /* PersonalViewController.swift */,
@@ -351,6 +362,7 @@
 				21D5EF5B1AED00CC003ECDF7 /* SearchViewController.swift in Sources */,
 				21F6DE981AF8436700C409FA /* EventDetailViewController.swift in Sources */,
 				21D5EF5D1AED00EC003ECDF7 /* PersonalViewController.swift in Sources */,
+				215AF57B1B0419FC00E74833 /* RefreshableTableViewController.swift in Sources */,
 				2130E3611B02D16600C65D7D /* EventListViewController.swift in Sources */,
 				2130E3631B02D41F00C65D7D /* EventCell.swift in Sources */,
 				21D5EF541AECD58B003ECDF7 /* CityCell.swift in Sources */,

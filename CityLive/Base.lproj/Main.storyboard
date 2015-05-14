@@ -327,7 +327,7 @@
                     </refreshControl>
                     <connections>
                         <outlet property="loadMoreInidicator" destination="Mrd-ub-o0G" id="MTJ-72-3Xp"/>
-                        <outlet property="loadingMoreFooter" destination="Ry1-qW-Ji3" id="8mu-la-Qxz"/>
+                        <outlet property="loadingMoreFooter" destination="Ry1-qW-Ji3" id="5hq-sj-KUg"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yt1-5k-5Xw" userLabel="First Responder" sceneMemberID="firstResponder"/>
