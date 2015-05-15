@@ -67,6 +67,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="yi7-zT-e1N">
+                            <rect key="frame" x="0.0" y="4" width="600" height="50"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="nnm-fi-6LV">
+                                    <rect key="frame" x="290" y="15" width="20" height="20"/>
+                                </activityIndicatorView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="nnm-fi-6LV" firstAttribute="centerX" secondItem="yi7-zT-e1N" secondAttribute="centerX" id="9Pg-68-PK9"/>
+                                <constraint firstItem="nnm-fi-6LV" firstAttribute="centerY" secondItem="yi7-zT-e1N" secondAttribute="centerY" id="y3k-ei-mxb"/>
+                            </constraints>
+                        </view>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="eventCell" rowHeight="58" id="bdb-u3-RBj" customClass="EventCell" customModule="CityLive" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -96,6 +110,16 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="mcf-sl-DZH"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="FpW-8v-Tcr">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <action selector="refresh:" destination="1FD-KJ-pBK" eventType="valueChanged" id="4po-YD-Yb6"/>
+                        </connections>
+                    </refreshControl>
+                    <connections>
+                        <outlet property="loadMoreInidicator" destination="nnm-fi-6LV" id="jOt-1H-jdX"/>
+                        <outlet property="loadingMoreFooter" destination="yi7-zT-e1N" id="AYd-rP-A3A"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SV3-4E-Evl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -326,7 +350,7 @@
                         </connections>
                     </refreshControl>
                     <connections>
-                        <outlet property="loadMoreInidicator" destination="Mrd-ub-o0G" id="MTJ-72-3Xp"/>
+                        <outlet property="loadMoreInidicator" destination="Mrd-ub-o0G" id="oHh-6g-oP0"/>
                         <outlet property="loadingMoreFooter" destination="Ry1-qW-Ji3" id="5hq-sj-KUg"/>
                     </connections>
                 </tableViewController>

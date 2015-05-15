@@ -11,17 +11,17 @@ import Alamofire
 import SwiftyJSON
 
 protocol Refreshable {
-    func loadMore() -> Void
-    func onData(json: JSON) -> Void
+    func initRequest() -> Request?
+    func loadMoreRequest() -> Request?
+    func onInitData(json: JSON) -> Void
     func addData(json: JSON) -> Void
-    func dataCount() -> Int
     
 }
 
 class RefreshableTableViewController: UITableViewController, Refreshable{
     
     var isLoadingData = false
-    var loadMoreInidicator: UIActivityIndicatorView!
+    @IBOutlet var loadMoreInidicator: UIActivityIndicatorView!
     
     @IBOutlet weak var loadingMoreFooter: UIView!
     
@@ -49,12 +49,11 @@ class RefreshableTableViewController: UITableViewController, Refreshable{
             refreshControl?.beginRefreshing()
         }
         
-        Alamofire.request(.GET, Urls.cityList).responseJSON {
+        initRequest()?.responseJSON {
             (_, _, resJson, _) in
 
-            self.onData(JSON(resJson!))
+            self.onInitData(JSON(resJson!))
             
-            self.tableView.reloadData()
             if self.refreshControl != nil && self.refreshControl!.refreshing {
                 self.refreshControl?.endRefreshing()
                 
@@ -63,6 +62,7 @@ class RefreshableTableViewController: UITableViewController, Refreshable{
             self.loadingMoreFooter.hidden = false
         }
     }
+    
     
     func loadMore() {
         if isLoadingData {
@@ -73,7 +73,7 @@ class RefreshableTableViewController: UITableViewController, Refreshable{
         loadMoreInidicator.startAnimating()
         
         
-        Alamofire.request(.GET, Urls.cityList, parameters: ["start": dataCount(), "count": 20]).responseJSON {
+        loadMoreRequest()?.responseJSON {
             (_, _, resJson, _) in
             if resJson != nil {
                 self.addData(JSON(resJson!))
@@ -83,14 +83,18 @@ class RefreshableTableViewController: UITableViewController, Refreshable{
         }
     }
     
+    func initRequest() -> Request? {
+        return nil
+    }
     
-    func onData(json: JSON) {
+    func loadMoreRequest() -> Request? {
+        return nil
+    }
+    
+    func onInitData(json: JSON) {
         
     }
     
-    func dataCount() -> Int {
-        return -1
-    }
     
     func addData(json: JSON) {
         

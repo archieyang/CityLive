@@ -10,21 +10,39 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class EventListViewController: UITableViewController {
+class EventListViewController: RefreshableTableViewController {
 
     var events: [JSON]! = [JSON]()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    // MARK: - Table view data source
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete method implementation.
+        // Return the number of rows in the section.
+        return self.events.count
+    }
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("eventCell", forIndexPath: indexPath) as! EventCell
+        
+        cell.eventName.text = self.events[indexPath.row]["title"].stringValue
+        
+        
+        if indexPath.row == self.events.count - 1 {
+            loadMore()
+        }
+        
+        return cell
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func initRequest() -> Request? {
+        self.events.removeAll(keepCapacity: false)
+        
+        return loadMoreRequest()
+    }
+    
+    override func loadMoreRequest() -> Request? {
         var params = [String : AnyObject]()
         if let loc = NSUserDefaults.standardUserDefaults().stringForKey(CityTableViewController.Constants.CityDefaultsKey) {
             params = [
@@ -42,43 +60,23 @@ class EventListViewController: UITableViewController {
             ]
         }
         
-        Alamofire.request(.GET, Urls.eventList, parameters: params).responseJSON{
-            (_, _, resJson, _) in
-            if(resJson != nil) {
-                let json = JSON(resJson!)
-                
-                
-                if let evts = json["events"].array {
-                    self.events.removeAll(keepCapacity: true)
-                    self.events.extend(evts)
-                    self.tableView.reloadData()
-                }
-            }
+        params["start"] = self.events.count
+        
+        return Alamofire.request(.GET, Urls.eventList, parameters: params)
+    }
+    
+    override func addData(json: JSON) {
+        if let evts = json["events"].array {
+            self.events.extend(evts)
+            self.tableView.reloadData()
         }
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
-        return self.events.count
-    }
-
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
-        return self.events.count
-    }
-
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("eventCell", forIndexPath: indexPath) as! EventCell
-        
-        cell.eventName.text = self.events[indexPath.row]["title"].stringValue
-         
-
-        return cell
+    override func onInitData(json: JSON) {
+        if let evts = json["events"].array {
+            self.events = evts
+            self.tableView.reloadData()
+        }
     }
     
 

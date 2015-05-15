@@ -67,7 +67,6 @@ class CityTableViewController: RefreshableTableViewController {
             cell.citySelected.hidden = self.selectedCityId != city.id
         }
         
-        
         if indexPath.row == data.count - 1 {
             loadMore()
         }
@@ -86,10 +85,19 @@ class CityTableViewController: RefreshableTableViewController {
         }
     }
 
+    override func initRequest() -> Request? {
+        self.data.removeAll(keepCapacity: false)
+        return loadMoreRequest()
+    }
     
-    override func onData(json: JSON) {
+    override func loadMoreRequest() -> Request? {
+        return Alamofire.request(.GET, Urls.cityList, parameters: ["start": dataCount(), "count": 20])
+    }
+    
+    
+    override func onInitData(json: JSON) {
         self.data = City.JSON2CityList(json["locs"])
-        println(self.data)
+        self.tableView.reloadData()
     }
     
     override func addData(json: JSON) {
@@ -97,7 +105,7 @@ class CityTableViewController: RefreshableTableViewController {
         self.tableView.reloadData()
     }
     
-    override func dataCount() -> Int {
+    func dataCount() -> Int {
         return self.data.count
     }
     
