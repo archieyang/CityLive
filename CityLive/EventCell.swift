@@ -17,6 +17,7 @@ class EventCell: UITableViewCell {
     @IBOutlet weak var locLabel: UILabel!
     @IBOutlet weak var hostLabel: UILabel!
     
+    @IBOutlet weak var poserImage: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

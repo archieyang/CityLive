@@ -164,6 +164,7 @@
                                     <outlet property="eventName" destination="Y36-a3-vmO" id="IYm-rN-9D3"/>
                                     <outlet property="hostLabel" destination="HmD-th-EJi" id="c6I-PZ-TJY"/>
                                     <outlet property="locLabel" destination="3Ph-44-oIK" id="7re-Hn-d3y"/>
+                                    <outlet property="poserImage" destination="k8a-Jz-j3F" id="PrJ-39-ed8"/>
                                     <outlet property="timeLabel" destination="asM-JK-Pbq" id="JkP-ca-jFo"/>
                                 </connections>
                             </tableViewCell>

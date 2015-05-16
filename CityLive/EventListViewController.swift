@@ -31,6 +31,14 @@ class EventListViewController: RefreshableTableViewController {
         cell.locLabel.text = event["address"].stringValue
         cell.hostLabel.text = event["owner"]["name"].stringValue
         
+        Fetcher.fetchImage(event["image"].stringValue){
+            (image, error) in
+            if let cell = tableView.cellForRowAtIndexPath(indexPath) as? EventCell {
+                cell.poserImage.image = image
+            }
+        }
+
+        
         
         if indexPath.row == self.events.count - 1 {
             loadMore()
