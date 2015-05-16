@@ -11,6 +11,7 @@
 		2130E3631B02D41F00C65D7D /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2130E3621B02D41F00C65D7D /* EventCell.swift */; };
 		215AF57B1B0419FC00E74833 /* RefreshableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215AF57A1B0419FC00E74833 /* RefreshableTableViewController.swift */; };
 		21B012CF1AEBA147009E9ACF /* CityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B012CE1AEBA147009E9ACF /* CityTableViewController.swift */; };
+		21C846251B06D552003483FD /* Fetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C846241B06D552003483FD /* Fetcher.swift */; };
 		21D484301AEB9A7700EB7DF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D4842F1AEB9A7700EB7DF4 /* AppDelegate.swift */; };
 		21D484351AEB9A7700EB7DF4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21D484331AEB9A7700EB7DF4 /* Main.storyboard */; };
 		21D484371AEB9A7700EB7DF4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21D484361AEB9A7700EB7DF4 /* Images.xcassets */; };
@@ -43,6 +44,7 @@
 		2130E3621B02D41F00C65D7D /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		215AF57A1B0419FC00E74833 /* RefreshableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshableTableViewController.swift; sourceTree = "<group>"; };
 		21B012CE1AEBA147009E9ACF /* CityTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityTableViewController.swift; sourceTree = "<group>"; };
+		21C846241B06D552003483FD /* Fetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fetcher.swift; sourceTree = "<group>"; };
 		21D4842A1AEB9A7700EB7DF4 /* CityLive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CityLive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21D4842E1AEB9A7700EB7DF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21D4842F1AEB9A7700EB7DF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 			children = (
 				21D5EF551AECDDAC003ECDF7 /* Urls.swift */,
 				215AF57A1B0419FC00E74833 /* RefreshableTableViewController.swift */,
+				21C846241B06D552003483FD /* Fetcher.swift */,
 			);
 			name = utils;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 				21D5EF541AECD58B003ECDF7 /* CityCell.swift in Sources */,
 				21D484301AEB9A7700EB7DF4 /* AppDelegate.swift in Sources */,
 				21D5EF591AED0032003ECDF7 /* SelectedController.swift in Sources */,
+				21C846251B06D552003483FD /* Fetcher.swift in Sources */,
 				21D5EF561AECDDAC003ECDF7 /* Urls.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

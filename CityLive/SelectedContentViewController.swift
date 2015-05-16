@@ -23,9 +23,8 @@ class SelectedContentViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        Alamofire.request(.GET, event["image"].stringValue).validate().responseImage{
-            (_, _, image, error) in
-            
+        Fetcher.fetchImage(event["image"].stringValue) {
+            (image, error) in 
             self.topPoster.image = image
         }
     }
@@ -42,26 +41,4 @@ class SelectedContentViewController: UIViewController {
 
 }
 
-extension Alamofire.Request {
-    class func imageResourceSerializer() -> Serializer {
-        return {
-            request, response, data in
-            
-            if data == nil {
-                return (nil, nil)
-            }
-            
-            let image = UIImage(data:data!)
-            
-            return (image, nil)
-        }
-    }
-    
-    func responseImage (completionHandler: (NSURLRequest, NSHTTPURLResponse?, UIImage?, NSError?) -> Void) -> Self {
-        return response(serializer: Request.imageResourceSerializer(), completionHandler: {
-            (request, response, image, error) in
-            
-            completionHandler(request, response, image as? UIImage, error)
-        })
-    }
-}
+
