@@ -84,8 +84,6 @@ class SelectedController: UIPageViewController, UIPageViewControllerDataSource{
 //                self.navigationController?.navigationBar.translucent = false
                 
                 
-
-                
             }
         }
     }

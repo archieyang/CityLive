@@ -21,12 +21,15 @@ class EventListViewController: RefreshableTableViewController {
         // Return the number of rows in the section.
         return self.events.count
     }
-
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("eventCell", forIndexPath: indexPath) as! EventCell
         
-        cell.eventName.text = self.events[indexPath.row]["title"].stringValue
+        let event = events[indexPath.row]
+        cell.eventName.text = event["title"].stringValue
+        cell.timeLabel.text = event["begin_time"].stringValue
+        cell.locLabel.text = event["address"].stringValue
+        cell.hostLabel.text = event["owner"]["name"].stringValue
         
         
         if indexPath.row == self.events.count - 1 {
