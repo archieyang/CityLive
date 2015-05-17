@@ -48,12 +48,15 @@ class EventListViewController: RefreshableTableViewController {
     }
     
     override func initRequest() -> Request? {
-        self.events.removeAll(keepCapacity: false)
-        
-        return loadMoreRequest()
+        return Alamofire.request(.GET, Urls.eventList, parameters: getBaseParams(startFrom: 0))
     }
     
     override func loadMoreRequest() -> Request? {
+        return Alamofire.request(.GET, Urls.eventList, parameters: getBaseParams(startFrom: self.events.count))
+    }
+    
+    
+    private func getBaseParams(startFrom start:Int ) -> [String: AnyObject] {
         var params = [String : AnyObject]()
         if let loc = NSUserDefaults.standardUserDefaults().stringForKey(CityTableViewController.Constants.CityDefaultsKey) {
             params = [
@@ -71,9 +74,9 @@ class EventListViewController: RefreshableTableViewController {
             ]
         }
         
-        params["start"] = self.events.count
+        params["start"] = start
         
-        return Alamofire.request(.GET, Urls.eventList, parameters: params)
+        return params
     }
     
     override func addData(json: JSON) {

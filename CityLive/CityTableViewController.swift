@@ -86,8 +86,7 @@ class CityTableViewController: RefreshableTableViewController {
     }
 
     override func initRequest() -> Request? {
-        self.data.removeAll(keepCapacity: false)
-        return loadMoreRequest()
+        return Alamofire.request(.GET, Urls.cityList, parameters: ["start": 0, "count": 20])
     }
     
     override func loadMoreRequest() -> Request? {
