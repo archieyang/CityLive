@@ -14,6 +14,12 @@ class EventListViewController: RefreshableTableViewController {
 
     var events: [JSON]! = [JSON]()
     
+    override func viewWillAppear(animated: Bool) {
+        if events.count == 0 {
+            refresh()
+        }
+    }
+    
     // MARK: - Table view data source
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -37,7 +43,6 @@ class EventListViewController: RefreshableTableViewController {
                 cell.poserImage.image = image
             }
         }
-
         
         
         if indexPath.row == self.events.count - 1 {
@@ -45,6 +50,10 @@ class EventListViewController: RefreshableTableViewController {
         }
         
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.performSegueWithIdentifier("showEventDetail", sender: self)
     }
     
     override func initRequest() -> Request? {
@@ -95,14 +104,19 @@ class EventListViewController: RefreshableTableViewController {
     
 
 
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "showEventDetail" {
+            if let destinationVC = segue.destinationViewController  as? EventDetailViewController {
+                if let indexPath = self.tableView.indexPathForSelectedRow() {
+                    destinationVC.eventJson = events[indexPath.row]
+                }
+                
+            }
+        }
     }
-    */
+    
 
 }

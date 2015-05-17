@@ -11,14 +11,13 @@ import SwiftyJSON
 
 class EventDetailViewController: UIViewController {
     var eventJson: JSON!
-    var posterImage: UIImage!
+    var posterImage: UIImage?
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var hostLabel: UILabel!
     @IBOutlet weak var eventDescription: UITextView!
     @IBOutlet weak var posterImageView: UIImageView!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()

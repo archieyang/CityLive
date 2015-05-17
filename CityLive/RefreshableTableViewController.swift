@@ -28,10 +28,6 @@ class RefreshableTableViewController: UITableViewController, Refreshable{
     @IBAction func refresh(sender: UIRefreshControl) {
         refresh()
     }
-    
-    override func viewWillAppear(animated: Bool) {
-        refresh()
-    }
 
     func refresh() -> Void{
         if isLoadingData {

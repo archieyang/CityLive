@@ -25,6 +25,12 @@ class CityTableViewController: RefreshableTableViewController {
 //        refresh()
 //    }
     
+    override func viewWillAppear(animated: Bool) {
+        if data.count == 0 {
+            refresh()
+        }
+    }
+    
     // MARK: - Tabitem actions
     
     @IBAction func onFinish(sender: UIBarButtonItem) {

@@ -31,7 +31,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2214" y="374"/>
+            <point key="canvasLocation" x="2156" y="374"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="qtZ-ss-tUf">
@@ -39,7 +39,7 @@
                 <pageViewController storyboardIdentifier="SelectedPageViewController" autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="6gN-ig-6On" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mrG-CD-nOx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2575" y="2270"/>
+            <point key="canvasLocation" x="3051" y="510"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="RDp-WF-pPE">
@@ -58,14 +58,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zci-v6-vK4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1742" y="2038"/>
+            <point key="canvasLocation" x="2146" y="2402"/>
         </scene>
         <!--Event List View Controller-->
         <scene sceneID="HzD-wQ-KXb">
             <objects>
                 <tableViewController id="1FD-KJ-pBK" customClass="EventListViewController" customModule="CityLive" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="130" sectionHeaderHeight="22" sectionFooterHeight="22" id="8nT-Qg-uQo">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="yi7-zT-e1N">
@@ -174,6 +174,7 @@
                             <outlet property="delegate" destination="1FD-KJ-pBK" id="z4u-vd-DaA"/>
                         </connections>
                     </tableView>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="mcf-sl-DZH"/>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="FpW-8v-Tcr">
                         <autoresizingMask key="autoresizingMask"/>
@@ -184,26 +185,27 @@
                     <connections>
                         <outlet property="loadMoreInidicator" destination="nnm-fi-6LV" id="jOt-1H-jdX"/>
                         <outlet property="loadingMoreFooter" destination="yi7-zT-e1N" id="AYd-rP-A3A"/>
+                        <segue destination="di8-8R-bFd" kind="show" identifier="showEventDetail" id="zqw-bN-osk"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SV3-4E-Evl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3087" y="1194"/>
+            <point key="canvasLocation" x="3143" y="1398"/>
         </scene>
         <!--Event Detail View Controller-->
         <scene sceneID="Gze-5A-hJb">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="di8-8R-bFd" customClass="EventDetailViewController" customModule="CityLive" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="currentContext" hidesBottomBarWhenPushed="YES" id="di8-8R-bFd" customClass="EventDetailViewController" customModule="CityLive" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xg5-Qs-9Us"/>
                         <viewControllerLayoutGuide type="bottom" id="8OM-ft-r8L"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8AX-yH-mVK">
-                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2WA-JH-qGK">
-                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o3M-nt-FsU" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="419"/>
@@ -294,22 +296,13 @@
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="2WA-JH-qGK" secondAttribute="trailing" constant="-16" id="9ot-oA-gcl"/>
-                            <constraint firstItem="xg5-Qs-9Us" firstAttribute="top" secondItem="2WA-JH-qGK" secondAttribute="top" id="FPj-9l-Udv"/>
                             <constraint firstItem="2WA-JH-qGK" firstAttribute="leading" secondItem="8AX-yH-mVK" secondAttribute="leadingMargin" constant="-16" id="M94-TP-paC"/>
                             <constraint firstItem="8OM-ft-r8L" firstAttribute="bottom" secondItem="2WA-JH-qGK" secondAttribute="bottom" id="Sts-Yn-VT6"/>
-                            <constraint firstItem="2WA-JH-qGK" firstAttribute="top" secondItem="xg5-Qs-9Us" secondAttribute="bottom" id="cmH-dP-2nm"/>
-                            <constraint firstItem="8OM-ft-r8L" firstAttribute="top" secondItem="2WA-JH-qGK" secondAttribute="bottom" constant="8" symbolic="YES" id="pFA-jA-cEq"/>
-                            <constraint firstItem="8OM-ft-r8L" firstAttribute="bottom" secondItem="2WA-JH-qGK" secondAttribute="bottom" id="xUt-dU-lb9"/>
+                            <constraint firstItem="2WA-JH-qGK" firstAttribute="top" secondItem="xg5-Qs-9Us" secondAttribute="bottom" id="xGe-xn-3E6"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="FPj-9l-Udv"/>
-                                <exclude reference="pFA-jA-cEq"/>
-                                <exclude reference="xUt-dU-lb9"/>
-                            </mask>
-                        </variation>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" id="bSe-uq-wii"/>
                     <connections>
                         <outlet property="addressLabel" destination="pMV-oe-GGx" id="Z0b-Lz-rBY"/>
                         <outlet property="eventDescription" destination="KeH-M5-2au" id="Tfz-be-K1v"/>
@@ -321,7 +314,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MV7-EG-Dcs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3898" y="2262"/>
+            <point key="canvasLocation" x="4644" y="1392"/>
         </scene>
         <!--选择城市-->
         <scene sceneID="v25-eD-XI8">
@@ -421,7 +414,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yt1-5k-5Xw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3884" y="374"/>
+            <point key="canvasLocation" x="4055" y="-177"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="C1J-N1-Lxx">
@@ -439,12 +432,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="goK-wN-PgZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3044" y="374"/>
+            <point key="canvasLocation" x="3040" y="-177"/>
         </scene>
         <!--Selected Content View Controller-->
         <scene sceneID="Erk-mM-plZ">
             <objects>
-                <viewController storyboardIdentifier="SelectedContentViewController" automaticallyAdjustsScrollViewInsets="NO" id="RE6-mf-kLd" customClass="SelectedContentViewController" customModule="CityLive" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SelectedContentViewController" id="RE6-mf-kLd" customClass="SelectedContentViewController" customModule="CityLive" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ma8-Yy-O1P"/>
                         <viewControllerLayoutGuide type="bottom" id="K8v-RN-Ao1"/>
@@ -524,6 +517,7 @@
                             <constraint firstItem="uUO-uk-wSp" firstAttribute="top" secondItem="ma8-Yy-O1P" secondAttribute="bottom" id="mKi-hb-lTO"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
                         <outlet property="titleLabel" destination="jGW-x5-Axd" id="l30-F2-EgP"/>
                         <outlet property="topPoster" destination="whZ-3n-Ycq" id="yMs-Qa-8lx"/>
@@ -532,11 +526,11 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hdG-U3-GEF" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="u3u-hB-Bbb">
                     <connections>
-                        <segue destination="di8-8R-bFd" kind="show" identifier="showEventDetail" id="Q04-KK-qCK"/>
+                        <segue destination="di8-8R-bFd" kind="show" identifier="showEventDetail" id="p20-6B-TRy"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3204" y="2270"/>
+            <point key="canvasLocation" x="3844" y="510"/>
         </scene>
         <!--精选活动-->
         <scene sceneID="iPF-xo-Urk">
@@ -594,7 +588,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gXC-hh-HjB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1956" y="1160"/>
+            <point key="canvasLocation" x="1622" y="1426"/>
         </scene>
         <!--我的活动-->
         <scene sceneID="h7R-60-IVj">
@@ -613,7 +607,10 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4pI-FH-j1S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="930" y="2038"/>
+            <point key="canvasLocation" x="858" y="2374"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="zqw-bN-osk"/>
+    </inferredMetricsTieBreakers>
 </document>
