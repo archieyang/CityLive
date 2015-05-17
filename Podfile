@@ -5,6 +5,7 @@ use_frameworks!
 target 'CityLive' do
     pod 'SwiftyJSON', '>= 2.2'
     pod 'Alamofire', '~>1.2'
+    pod 'Kingfisher', '~> 1.4'
 end
 
 target 'CityLiveTests' do

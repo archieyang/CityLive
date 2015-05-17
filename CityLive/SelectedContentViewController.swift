@@ -9,6 +9,7 @@
 import UIKit
 import SwiftyJSON
 import Alamofire
+import Kingfisher
 
 class SelectedContentViewController: UIViewController {
 
@@ -23,10 +24,7 @@ class SelectedContentViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        Fetcher.fetchImage(event["image"].stringValue) {
-            (image, error) in 
-            self.topPoster.image = image
-        }
+        self.topPoster.kf_setImageWithURL(NSURL(string: event["image"].stringValue)!)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

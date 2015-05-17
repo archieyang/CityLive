@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import Kingfisher
 
 class EventListViewController: RefreshableTableViewController {
 
@@ -36,13 +37,8 @@ class EventListViewController: RefreshableTableViewController {
         cell.timeLabel.text = event["begin_time"].stringValue
         cell.locLabel.text = event["address"].stringValue
         cell.hostLabel.text = event["owner"]["name"].stringValue
+        cell.poserImage.kf_setImageWithURL(NSURL(string: event["image"].stringValue)!)
         
-        Fetcher.fetchImage(event["image"].stringValue){
-            (image, error) in
-            if let cell = tableView.cellForRowAtIndexPath(indexPath) as? EventCell {
-                cell.poserImage.image = image
-            }
-        }
         
         
         if indexPath.row == self.events.count - 1 {

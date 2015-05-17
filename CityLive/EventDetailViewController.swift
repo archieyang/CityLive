@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftyJSON
+import Kingfisher
 
 class EventDetailViewController: UIViewController {
     var eventJson: JSON!
@@ -21,7 +22,7 @@ class EventDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        posterImageView.image = posterImage
+        posterImageView.kf_setImageWithURL(NSURL(string: eventJson["image"].stringValue)!)
         titleLabel.text = eventJson["title"].stringValue
         timeLabel.text = eventJson["begin_time"].stringValue
         addressLabel.text = eventJson["address"].stringValue
