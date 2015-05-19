@@ -35,7 +35,9 @@ class CityTableViewController: RefreshableTableViewController {
     
     @IBAction func onFinish(sender: UIBarButtonItem) {
         self.dismissViewControllerAnimated(true, completion: nil)
-        NSUserDefaults.standardUserDefaults().setObject(selectedCityId, forKey: Constants.CityDefaultsKey)
+        if selectedCityId != "" {
+            NSUserDefaults.standardUserDefaults().setObject(selectedCityId, forKey: Constants.CityDefaultsKey)
+        }
     }
     
     @IBAction func onCancel(sender: UIBarButtonItem) {

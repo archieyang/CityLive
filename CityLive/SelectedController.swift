@@ -37,7 +37,7 @@ class SelectedController: UIPageViewController, UIPageViewControllerDataSource{
         if events.count != 0 {
             return
         }
-        self.pageViewController.view.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.size.height - (self.parentViewController?.parentViewController as! UITabBarController).tabBar.frame.size.height)
+//        self.pageViewController.view.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.size.height - (self.parentViewController?.parentViewController as! UITabBarController).tabBar.frame.size.height)
         var params = [String : AnyObject]()
         if let loc = NSUserDefaults.standardUserDefaults().stringForKey(CityTableViewController.Constants.CityDefaultsKey) {
             params = [
