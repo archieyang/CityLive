@@ -446,11 +446,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zKT-br-1hf">
+                                <rect key="frame" x="589" y="18" width="11" height="564"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HBQ-CK-3Fy">
+                                <rect key="frame" x="0.0" y="18" width="12" height="564"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uUO-uk-wSp">
-                                <rect key="frame" x="0.0" y="20" width="600" height="480"/>
+                                <rect key="frame" x="12" y="28" width="577" height="564"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="whZ-3n-Ycq">
-                                        <rect key="frame" x="0.0" y="20" width="600" height="300"/>
+                                        <rect key="frame" x="0.0" y="20" width="577" height="289"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="488" id="3hD-6i-uPR"/>
                                             <constraint firstAttribute="height" constant="200" id="7mC-Hs-ok1"/>
@@ -470,7 +478,7 @@
                                         </variation>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jGW-x5-Axd">
-                                        <rect key="frame" x="10" y="360" width="580" height="21"/>
+                                        <rect key="frame" x="10" y="349" width="557" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -492,21 +500,49 @@
                             </view>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="zKT-br-1hf" firstAttribute="height" secondItem="uUO-uk-wSp" secondAttribute="height" id="0IM-CJ-7Ue"/>
                             <constraint firstItem="K8v-RN-Ao1" firstAttribute="top" secondItem="uUO-uk-wSp" secondAttribute="bottom" constant="100" id="2Dz-po-IMq"/>
                             <constraint firstItem="uUO-uk-wSp" firstAttribute="leading" secondItem="fWa-rF-Lby" secondAttribute="leadingMargin" id="50q-2E-Xew"/>
+                            <constraint firstItem="uUO-uk-wSp" firstAttribute="height" secondItem="HBQ-CK-3Fy" secondAttribute="height" id="5h4-1d-hP9"/>
+                            <constraint firstItem="uUO-uk-wSp" firstAttribute="leading" secondItem="HBQ-CK-3Fy" secondAttribute="trailing" constant="27" id="9HF-H0-oOb"/>
                             <constraint firstItem="uUO-uk-wSp" firstAttribute="leading" secondItem="fWa-rF-Lby" secondAttribute="leading" id="Kzi-zL-0ba"/>
+                            <constraint firstItem="uUO-uk-wSp" firstAttribute="leading" secondItem="fWa-rF-Lby" secondAttribute="leadingMargin" id="LSO-l2-yZN"/>
+                            <constraint firstItem="zKT-br-1hf" firstAttribute="trailing" secondItem="fWa-rF-Lby" secondAttribute="trailing" id="Mgi-1f-jne"/>
+                            <constraint firstItem="zKT-br-1hf" firstAttribute="leading" secondItem="uUO-uk-wSp" secondAttribute="trailing" id="NW5-8u-SHN"/>
                             <constraint firstItem="uUO-uk-wSp" firstAttribute="centerX" secondItem="fWa-rF-Lby" secondAttribute="centerX" id="OXR-Ou-Iw3"/>
+                            <constraint firstItem="uUO-uk-wSp" firstAttribute="leading" secondItem="HBQ-CK-3Fy" secondAttribute="trailing" constant="176" id="QP8-6o-GN1"/>
+                            <constraint firstItem="zKT-br-1hf" firstAttribute="width" secondItem="uUO-uk-wSp" secondAttribute="width" multiplier="1:50" id="QVS-4O-S2z"/>
+                            <constraint firstItem="uUO-uk-wSp" firstAttribute="top" secondItem="ma8-Yy-O1P" secondAttribute="bottom" constant="8" symbolic="YES" id="Qch-er-IgF"/>
+                            <constraint firstItem="whZ-3n-Ycq" firstAttribute="height" secondItem="HBQ-CK-3Fy" secondAttribute="height" id="Yks-WG-CPL"/>
+                            <constraint firstItem="uUO-uk-wSp" firstAttribute="width" secondItem="HBQ-CK-3Fy" secondAttribute="width" multiplier="50:1" id="Zro-SV-DOC"/>
                             <constraint firstAttribute="trailing" secondItem="uUO-uk-wSp" secondAttribute="trailing" id="bWf-lC-bPT"/>
+                            <constraint firstItem="HBQ-CK-3Fy" firstAttribute="leading" secondItem="fWa-rF-Lby" secondAttribute="leading" id="fEf-Wu-bf4"/>
+                            <constraint firstItem="zKT-br-1hf" firstAttribute="top" secondItem="ma8-Yy-O1P" secondAttribute="bottom" constant="31" id="fFX-8f-yiO"/>
+                            <constraint firstAttribute="centerY" secondItem="zKT-br-1hf" secondAttribute="centerY" id="fds-D9-RBZ"/>
+                            <constraint firstItem="K8v-RN-Ao1" firstAttribute="top" secondItem="uUO-uk-wSp" secondAttribute="bottom" constant="8" symbolic="YES" id="lnV-xZ-obP"/>
                             <constraint firstItem="uUO-uk-wSp" firstAttribute="top" secondItem="ma8-Yy-O1P" secondAttribute="bottom" id="mKi-hb-lTO"/>
+                            <constraint firstItem="uUO-uk-wSp" firstAttribute="leading" secondItem="HBQ-CK-3Fy" secondAttribute="trailing" id="ms1-Ux-ZsD"/>
+                            <constraint firstItem="zKT-br-1hf" firstAttribute="leading" secondItem="uUO-uk-wSp" secondAttribute="trailing" constant="298" id="ru8-aG-8hk"/>
+                            <constraint firstAttribute="centerY" secondItem="HBQ-CK-3Fy" secondAttribute="centerY" id="uwB-5E-lot"/>
                             <constraint firstAttribute="centerY" secondItem="uUO-uk-wSp" secondAttribute="centerY" id="wlP-5e-BYN"/>
                             <constraint firstAttribute="trailingMargin" secondItem="uUO-uk-wSp" secondAttribute="trailing" id="yGs-m4-EXP"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="50q-2E-Xew"/>
+                                <exclude reference="9HF-H0-oOb"/>
+                                <exclude reference="Kzi-zL-0ba"/>
+                                <exclude reference="LSO-l2-yZN"/>
                                 <exclude reference="OXR-Ou-Iw3"/>
+                                <exclude reference="QP8-6o-GN1"/>
+                                <exclude reference="bWf-lC-bPT"/>
+                                <exclude reference="mKi-hb-lTO"/>
                                 <exclude reference="wlP-5e-BYN"/>
                                 <exclude reference="yGs-m4-EXP"/>
+                                <exclude reference="Yks-WG-CPL"/>
+                                <exclude reference="fFX-8f-yiO"/>
+                                <exclude reference="ru8-aG-8hk"/>
+                                <exclude reference="2Dz-po-IMq"/>
                             </mask>
                         </variation>
                     </view>
