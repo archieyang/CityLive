@@ -7,39 +7,22 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--Item-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Selected Controller-->
+        <scene sceneID="qtZ-ss-tUf">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="SelectedController" customModule="CityLive" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="n6D-Sf-VUG"/>
-                    <navigationItem key="navigationItem" id="s9y-8S-TCd">
-                        <barButtonItem key="rightBarButtonItem" title="城市" id="OTy-As-qwA">
+                <pageViewController storyboardIdentifier="SelectedPageViewController" autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="6gN-ig-6On" customClass="SelectedController" customModule="CityLive" customModuleProvider="target" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" id="b2s-qe-APd">
+                        <barButtonItem key="rightBarButtonItem" title="城市" id="Ti0-B9-kAQ">
                             <connections>
-                                <segue destination="FLB-Lo-v5V" kind="presentation" id="pXK-xS-iBz"/>
+                                <segue destination="FLB-Lo-v5V" kind="showDetail" id="f7k-9H-aWJ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2156" y="374"/>
-        </scene>
-        <!--Page View Controller-->
-        <scene sceneID="qtZ-ss-tUf">
-            <objects>
-                <pageViewController storyboardIdentifier="SelectedPageViewController" autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="6gN-ig-6On" sceneMemberID="viewController"/>
+                </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mrG-CD-nOx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3051" y="510"/>
+            <point key="canvasLocation" x="2499" y="-497"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="RDp-WF-pPE">
@@ -58,12 +41,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zci-v6-vK4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2146" y="2402"/>
+            <point key="canvasLocation" x="3458" y="1890"/>
         </scene>
         <!--Event List View Controller-->
         <scene sceneID="HzD-wQ-KXb">
             <objects>
-                <tableViewController id="1FD-KJ-pBK" customClass="EventListViewController" customModule="CityLive" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController autoresizesArchivedViewToFullSize="NO" id="1FD-KJ-pBK" customClass="EventListViewController" customModule="CityLive" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="130" sectionHeaderHeight="22" sectionFooterHeight="22" id="8nT-Qg-uQo">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -190,7 +173,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SV3-4E-Evl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3143" y="1398"/>
+            <point key="canvasLocation" x="3183" y="798"/>
         </scene>
         <!--Event Detail View Controller-->
         <scene sceneID="Gze-5A-hJb">
@@ -314,7 +297,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MV7-EG-Dcs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4644" y="1392"/>
+            <point key="canvasLocation" x="4688" y="798"/>
         </scene>
         <!--选择城市-->
         <scene sceneID="v25-eD-XI8">
@@ -414,7 +397,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yt1-5k-5Xw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4055" y="-177"/>
+            <point key="canvasLocation" x="4399" y="-577"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="C1J-N1-Lxx">
@@ -432,7 +415,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="goK-wN-PgZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3040" y="-177"/>
+            <point key="canvasLocation" x="3304" y="-541"/>
         </scene>
         <!--Selected Content View Controller-->
         <scene sceneID="Erk-mM-plZ">
@@ -546,7 +529,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
                         <outlet property="titleLabel" destination="jGW-x5-Axd" id="l30-F2-EgP"/>
                         <outlet property="topPoster" destination="whZ-3n-Ycq" id="yMs-Qa-8lx"/>
@@ -559,12 +542,13 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3844" y="510"/>
+            <point key="canvasLocation" x="3521" y="116"/>
         </scene>
         <!--精选活动-->
         <scene sceneID="iPF-xo-Urk">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="e0x-bN-dfR" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="精选活动" id="Oxq-sf-yCw"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Vh0-vh-XaD">
@@ -573,17 +557,18 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="cIc-GW-b4i"/>
+                        <segue destination="6gN-ig-6On" kind="relationship" relationship="rootViewController" id="CZc-KW-L9T"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8me-NR-Xq2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1297" y="374"/>
+            <point key="canvasLocation" x="1297" y="-503"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="CGL-kg-2q9">
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="ccx-nM-5JF" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="vGA-kJ-Oo5">
@@ -598,7 +583,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q5T-dN-qky" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="321" y="426"/>
+            <point key="canvasLocation" x="429" y="422"/>
         </scene>
         <!--全部活动-->
         <scene sceneID="Oro-FH-0aA">
@@ -617,7 +602,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gXC-hh-HjB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1622" y="1426"/>
+            <point key="canvasLocation" x="2114" y="798"/>
         </scene>
         <!--我的活动-->
         <scene sceneID="h7R-60-IVj">
@@ -636,7 +621,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4pI-FH-j1S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="858" y="2374"/>
+            <point key="canvasLocation" x="1602" y="1910"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
