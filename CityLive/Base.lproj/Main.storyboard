@@ -268,6 +268,7 @@
                                         </variation>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="o3M-nt-FsU" secondAttribute="bottom" id="49T-98-gd9"/>
                                     <constraint firstAttribute="width" secondItem="o3M-nt-FsU" secondAttribute="width" id="VSt-xO-fy3"/>

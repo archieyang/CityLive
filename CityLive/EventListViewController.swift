@@ -50,6 +50,7 @@ class EventListViewController: RefreshableTableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.performSegueWithIdentifier("showEventDetail", sender: self)
+        self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
     override func initRequest() -> Request? {
