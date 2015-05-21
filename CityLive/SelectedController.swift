@@ -12,7 +12,7 @@ import SwiftyJSON
 
 class SelectedController: UIPageViewController, UIPageViewControllerDataSource{
 
-    var pageViewController: UIPageViewController!
+//    var pageViewController: UIPageViewController!
     
     var events: [JSON]!
     
@@ -22,9 +22,9 @@ class SelectedController: UIPageViewController, UIPageViewControllerDataSource{
         super.viewDidLoad()
         
         events = [JSON]()
-        
-        self.pageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("SelectedPageViewController") as! UIPageViewController
-        self.pageViewController.dataSource = self
+//        
+//        self.pageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("SelectedPageViewController") as! UIPageViewController
+        self.dataSource = self
         self.view.backgroundColor = UIColor.whiteColor()
 //        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
 //        self.navigationController?.navigationBar.shadowImage = UIImage()
@@ -37,7 +37,7 @@ class SelectedController: UIPageViewController, UIPageViewControllerDataSource{
         if events.count != 0 {
             return
         }
-        self.pageViewController.view.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.size.height)
+//        self.pageViewController.view.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.size.height)
         var params = [String : AnyObject]()
         if let loc = NSUserDefaults.standardUserDefaults().stringForKey(CityTableViewController.Constants.CityDefaultsKey) {
             params = [
@@ -74,12 +74,12 @@ class SelectedController: UIPageViewController, UIPageViewControllerDataSource{
                 
                 var viewControllers = [initVC]
                 
-                self.pageViewController.setViewControllers(viewControllers, direction: .Forward, animated: true, completion: nil)
+                self.setViewControllers(viewControllers, direction: .Forward, animated: true, completion: nil)
 //                
                 
-                self.addChildViewController(self.pageViewController)
-                self.view.addSubview(self.pageViewController.view)
-                self.pageViewController.didMoveToParentViewController(self)
+//                self.addChildViewController(self.pageViewController)
+//                self.view.addSubview(self.pageViewController.view)
+//                self.pageViewController.didMoveToParentViewController(self)
                 
 //                self.navigationController?.navigationBar.translucent = false
                 

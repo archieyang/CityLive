@@ -10,8 +10,9 @@
         <!--Selected Controller-->
         <scene sceneID="qtZ-ss-tUf">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mrG-CD-nOx" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <pageViewController storyboardIdentifier="SelectedPageViewController" automaticallyAdjustsScrollViewInsets="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="6gN-ig-6On" customClass="SelectedController" customModule="CityLive" customModuleProvider="target" sceneMemberID="viewController">
-                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="b2s-qe-APd">
                         <barButtonItem key="rightBarButtonItem" title="城市" id="Ti0-B9-kAQ">
                             <connections>
@@ -20,7 +21,6 @@
                         </barButtonItem>
                     </navigationItem>
                 </pageViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mrG-CD-nOx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2499" y="-497"/>
         </scene>
