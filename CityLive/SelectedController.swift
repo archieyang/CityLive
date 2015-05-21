@@ -26,10 +26,10 @@ class SelectedController: UIPageViewController, UIPageViewControllerDataSource{
         self.pageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("SelectedPageViewController") as! UIPageViewController
         self.pageViewController.dataSource = self
         self.view.backgroundColor = UIColor.whiteColor()
-        self.edgesForExtendedLayout = UIRectEdge.None
 //        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
 //        self.navigationController?.navigationBar.shadowImage = UIImage()
 //        self.navigationController?.navigationBar.translucent = true
+        self.tabBarController?.tabBar.translucent = false
         
     }
 
@@ -37,7 +37,7 @@ class SelectedController: UIPageViewController, UIPageViewControllerDataSource{
         if events.count != 0 {
             return
         }
-//        self.pageViewController.view.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.size.height - (self.parentViewController?.parentViewController as! UITabBarController).tabBar.frame.size.height)
+        self.pageViewController.view.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.size.height)
         var params = [String : AnyObject]()
         if let loc = NSUserDefaults.standardUserDefaults().stringForKey(CityTableViewController.Constants.CityDefaultsKey) {
             params = [

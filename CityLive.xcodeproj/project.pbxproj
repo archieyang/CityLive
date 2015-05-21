@@ -125,8 +125,8 @@
 		21D4842C1AEB9A7700EB7DF4 /* CityLive */ = {
 			isa = PBXGroup;
 			children = (
-				215AF5791B0419CD00E74833 /* utils */,
 				21D484331AEB9A7700EB7DF4 /* Main.storyboard */,
+				215AF5791B0419CD00E74833 /* utils */,
 				2130E35F1B02D12C00C65D7D /* List */,
 				21F6DE961AF8434300C409FA /* Detail */,
 				21D5EF5E1AED1617003ECDF7 /* Selected */,
@@ -503,6 +503,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CityLive/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -514,6 +515,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CityLive/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

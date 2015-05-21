@@ -10,8 +10,8 @@
         <!--Selected Controller-->
         <scene sceneID="qtZ-ss-tUf">
             <objects>
-                <pageViewController storyboardIdentifier="SelectedPageViewController" autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="6gN-ig-6On" customClass="SelectedController" customModule="CityLive" customModuleProvider="target" sceneMemberID="viewController">
-                    <extendedEdge key="edgesForExtendedLayout"/>
+                <pageViewController storyboardIdentifier="SelectedPageViewController" automaticallyAdjustsScrollViewInsets="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="6gN-ig-6On" customClass="SelectedController" customModule="CityLive" customModuleProvider="target" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationItem key="navigationItem" id="b2s-qe-APd">
                         <barButtonItem key="rightBarButtonItem" title="城市" id="Ti0-B9-kAQ">
                             <connections>
